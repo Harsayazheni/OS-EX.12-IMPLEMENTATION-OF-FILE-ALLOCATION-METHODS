@@ -112,3 +112,61 @@ printf("\n");
 # RESULT
 
 Thus, file management using indexed list is implemented successfully.
+
+# AIM
+
+To implement file management using linked list.
+
+# PROGRAM
+```
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+    int f[50], p, i, st, len, j, c, k, a;
+    for (i = 0; i < 50; i++)
+        f[i] = 0;
+    printf("Enter how many blocks already allocated: ");
+    scanf("%d", &p);
+    printf("Enter blocks already allocated: ");
+    for (i = 0; i < p; i++) {
+        scanf("%d", &a);
+        f[a] = 1;
+    }
+x:
+    printf("Enter index starting block and length: ");
+    scanf("%d%d", &st, &len);
+    k = len;
+    if (f[st] == 0)
+    {
+        for (j = st; j < (st + k); j++){
+            if (f[j] == 0){
+                f[j] = 1;
+                printf("%d-------->%d\n", j, f[j]);
+            }
+            else{
+                printf("%d Block is already allocated \n", j);
+                k++;
+            }
+        }
+    }
+    else
+        printf("%d starting block is already allocated \n", st);
+    printf("Do you want to enter more file(Yes - 1/No - 0)");
+    scanf("%d", &c);
+    if (c == 1)
+        goto x;
+    else
+        exit(0);
+    return 0;
+}
+```
+
+# OUTPUT
+
+![image](https://github.com/Harsayazheni/OS-EX.12-IMPLEMENTATION-OF-FILE-ALLOCATION-METHODS/assets/118708467/3e880b42-71ac-4c37-bfb1-30e5ebc19b59)
+
+
+
+# RESULT
+
+Thus, file management using linked list is implemented successfully.
