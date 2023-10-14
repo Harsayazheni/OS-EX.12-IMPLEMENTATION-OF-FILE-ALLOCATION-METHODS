@@ -1,13 +1,67 @@
 # OS-EX.12-IMPLEMENTATION-OF-FILE-ALLOCATION-METHODS
 
-( Follow template provided in CPU scheduling algorithms for sub divisions )
+# AIM
 
-AIM:
+To implement file management using sequential list.
 
-ALGORITHM:
+# ALGORITHM
 
-PROGRAM:
+Step 1: Start the program.
 
-OUTPUT:
+Step 2: Get the number of memory partition and their sizes.
 
-RESULT:
+Step 3: Get the number of processes and values of block size for each process.
+
+Step 4: First fit algorithm searches all the entire memory block until a hole which is big enough is encountered. It allocates that memory block for the requesting process.
+
+Step 5: Best-fit algorithm searches the memory blocks for the smallest hole which can be allocated to requesting process and allocates it.
+
+Step 6: Worst fit algorithm searches the memory blocks for the largest hole and allocates it to the process.
+
+Step 7: Analyses all the three memory management techniques and display the best algorithm which utilizes the memory resources effectively and efficiently.
+
+Step 8: Stop the program.
+
+# PROGRAM
+```
+#include < stdio.h>
+#include<conio.h>
+void main()
+{
+int f[50], i, st, len, j, c, k, count = 0;
+clrscr();
+for(i=0;i<50;i++)
+f[i]=0;
+printf("Files Allocated are : \n");
+x: count=0;
+printf(“Enter starting block and length of files: ”);
+scanf("%d%d", &st,&len);
+for(k=st;k<(st+len);k++)
+if(f[k]==0)
+count++;
+if(len==count)
+{
+for(j=st;j<(st+len);j++)
+if(f[j]==0)
+{
+f[j]=1;
+printf("%d\t%d\n",j,f[j]);
+}
+if(j!=(st+len-1))
+printf(” The file is allocated to disk\n");
+}
+else
+printf(” The file is not allocated \n");
+printf("Do you want to enter more file(Yes - 1/No - 0)");
+scanf("%d", &c);
+if(c==1)
+goto x;
+else
+exit();
+getch();
+}
+```
+
+# OUTPUT
+
+# RESULT
